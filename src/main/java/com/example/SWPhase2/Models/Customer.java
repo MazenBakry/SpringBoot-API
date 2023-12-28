@@ -1,16 +1,21 @@
 package com.example.SWPhase2.Models;
 
+import java.util.ArrayList;
+
 public class Customer {
     private int id;
     private double balance;
     private String username;
     private String password;
 
+    private ArrayList<Integer>orders;
+
     public Customer(int id, double balance, String username, String password) {
         this.id = id;
         this.balance = balance;
         this.username = username;
         this.password = password;
+        orders = new ArrayList<>();
     }
 
     public int getId() {
@@ -44,4 +49,12 @@ public class Customer {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void addOrder(int orderId){
+        orders.add(orderId);
+    }
+    public  void removeOrder(int orderId){
+        orders.remove(orderId);
+    }
+
 }

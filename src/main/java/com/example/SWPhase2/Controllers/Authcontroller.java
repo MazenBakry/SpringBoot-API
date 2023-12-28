@@ -36,10 +36,10 @@ public class Authcontroller {
         return new ResponseEntity<>("Logged in Successfully, your id is " + customer.getId(), HttpStatus.OK);
     }
 
-//    @GetMapping("/customers")
-//    public Customer[] getCustomers(){
-//        return authService.getCustomers();
-//    }
+    @GetMapping("/customers")
+    public Customer[] getCustomers(){
+        return authService.getCustomers();
+    }
 
 
 
