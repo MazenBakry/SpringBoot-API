@@ -35,9 +35,4 @@ public class AuthServiceImpl implements AuthService{
         }
         return null;
     }
-
-    @Override
-    public Customer[] getCustomers() {
-        return memoryDB.getCustomers();
-    }
 }

@@ -27,19 +27,16 @@ public class Authcontroller {
         return  new ResponseEntity<>("username already taken", HttpStatus.BAD_REQUEST);
     }
 
-    @PostMapping("/login/{username}/{password}")
-    public ResponseEntity<String> login(@PathVariable String username, @PathVariable String password){
-        Customer customer = authService.logIn(username, password);
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody Customer credential){
+        Customer customer = authService.logIn(credential.getUsername(), credential.getPassword());
         if(customer == null){
             return new ResponseEntity<>("Login Failed", HttpStatus.FORBIDDEN);
         }
         return new ResponseEntity<>("Logged in Successfully, your id is " + customer.getId(), HttpStatus.OK);
     }
 
-    @GetMapping("/customers")
-    public Customer[] getCustomers(){
-        return authService.getCustomers();
-    }
+
 
 
 

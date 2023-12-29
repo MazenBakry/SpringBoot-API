@@ -18,7 +18,7 @@ public class OrderController {
     public OrderController(OrderServiceImpl orderService) {
         this.orderService = orderService;
     }
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<String> placeOrder(@RequestBody Order o){
         if(orderService.placeOrder(o)){
             return new ResponseEntity<>("Order placed Successfully", HttpStatus.CREATED);
@@ -26,14 +26,17 @@ public class OrderController {
         return new ResponseEntity<>("Order was declined", HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public Order[] getOrder(){
         return orderService.getOrders();
     }
-    /*
+
     @DeleteMapping("/cancel/{id}")
     public ResponseEntity<String> removeOrder(@PathVariable int id){
-        orderService.removeOrder(id);
+        if(orderService.removeOrder(id)){
+            return new ResponseEntity<>("Order Cancelled", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Order cannot be Cancelled", HttpStatus.BAD_REQUEST);
     }
-   */
+
 }

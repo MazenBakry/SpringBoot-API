@@ -22,4 +22,8 @@ public class CustomerServiceImpl implements CustomerService{
         customer.setBalance(customer.getBalance()+amount);
         return  memoryDB.updateCustomer(customer);
     }
+    @Override
+    public Customer[] getCustomers() {
+        return memoryDB.getCustomers();
+    }
 }

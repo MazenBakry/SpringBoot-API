@@ -10,11 +10,13 @@ public interface Database {
      boolean updateCustomer(Customer customer);
      Customer getCustomerById(int id);
 
-     boolean addOrder(Order order);
+     Order getOrderById(int id);
 
-     boolean updateProduct(Product product);
+     boolean addOrder(Order order);
 
      Product getProductById(int id);
      Order[] getOrders();
+     public boolean updateProduct(Product product);
+
 
 }

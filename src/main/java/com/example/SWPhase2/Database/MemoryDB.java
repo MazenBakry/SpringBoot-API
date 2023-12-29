@@ -99,4 +99,9 @@ public class MemoryDB implements Database{
         Order[] orderArray = orders.values().toArray(new Order[0]);
         return orderArray;
     }
+
+    @Override
+    public Order getOrderById(int id) {
+        return  orders.get(id);
+    }
 }
