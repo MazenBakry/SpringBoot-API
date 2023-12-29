@@ -18,7 +18,7 @@ public class NotificationFactory {
         if(type.equalsIgnoreCase("Placement")){
             return new PlacementNotification("Order Placement", types, langs, order, db);
         }
-        else if(type.equalsIgnoreCase("Shipment")){
+        else if(type.equalsIgnoreCase("S")){
             return new ShipmentNotification("Order Shipped", types,langs,order, db);
         }
         return null;

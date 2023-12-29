@@ -5,11 +5,13 @@ import com.example.SWPhase2.Models.Order;
 import com.example.SWPhase2.Models.OrderStatus;
 import com.example.SWPhase2.Utils.Notification;
 import com.example.SWPhase2.Utils.NotificationFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+
 
 @Service
 public class NotificationServiceImpl implements NotificationService{
@@ -39,5 +41,15 @@ public class NotificationServiceImpl implements NotificationService{
             }
         });
         notificationThread.start();
+    }
+
+    @Override
+    public ArrayList<String> getNotifications() {
+        ArrayList<String> notificationsToBeReturned = new ArrayList<>();
+        for(Notification noti : notificationsList){
+            if(noti != null)
+                notificationsToBeReturned.add(noti.getMessage());
+        }
+        return  notificationsToBeReturned;
     }
 }

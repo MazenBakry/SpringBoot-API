@@ -5,9 +5,6 @@ import com.example.SWPhase2.Models.Order;
 import com.example.SWPhase2.Models.OrderStatus;
 import com.example.SWPhase2.Models.Product;
 import org.springframework.stereotype.Repository;
-
-import java.net.Inet4Address;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
